@@ -55,42 +55,87 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+Step1:- Open the quartus II software.
+
+Step2:- Create a new project.
+
+Step3:- Name the projects such that the same name is used for mentioning the name of the module.
+
+Step4:- Develop programmes for both Encoder and Decoder using verilog programming.
+
+Step5:- Run RTL Simulation.
+
+Step6:- Create the Timing diagram.
+
+Step7:- Validate the outputs.
 
 
 
 ### PROGRAM 
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: S.LOKESH SAI DILEEP
+RegisterNumber: 212221230111 
 */
+### Encoder:
+module encoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
 
+output a,b,c;
 
+input d0,d1,d2,d3,d4,d5,d6,d7;
 
+or(a,d4,d5,d6,d7);
 
+or(b,d2,d3,d6,d7);
 
+or(c,d1,d3,d5,d7);
+
+endmodule
+
+### Decoder:
+module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+
+output d0,d1,d2,d3,d4,d5,d6,d7;
+
+input a,b,c;
+
+assign d0 = (~a&~b&~c);
+
+assign d1 = (~a&~b&c);
+
+assign d2 = (~a&b&~c);
+
+assign d3 = (~a&b&c);
+
+assign d4 = (a&~b&~c);
+
+assign d5 = (a&~b&c);
+
+assign d6 = (a&b&~c);
+
+assign d7 = (a&b&c);
+
+endmodule
 
 ### RTL LOGIC  
+### Encoder
+![image](https://user-images.githubusercontent.com/94883079/204096456-29929f0b-38dc-44cf-94f3-4b1ddffd77d5.png)
 
+### Decoder
+![image](https://user-images.githubusercontent.com/94883079/204096480-e6c10c4b-3c7f-4d45-ade8-f5f323d7a758.png)
 
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
+### TIMING DIGRAMS 
+### Encoder
+![image](https://user-images.githubusercontent.com/94883079/204096513-17e88dda-f9ef-4fe8-a9b4-f9e5205efa21.png)
+### Decoder
+![image](https://user-images.githubusercontent.com/94883079/204096542-65352eb4-419f-4f71-9726-e87246fbdee4.png)
 
 ### TRUTH TABLE 
+### Encoder
+![image](https://user-images.githubusercontent.com/94883079/204096577-a8664b9a-5d6f-4563-96ae-1dba33f81643.png)
 
+### Decoder
+![image](https://user-images.githubusercontent.com/94883079/204096598-f495d9b1-0d86-4194-b3a6-1ac09fc5f87e.png)
 
-
-
-
-
-### RESULTS 
+### RESULT:
+Therefore 8 to 3 Encoder and 3 to 8 Decoder are implemented successfully using verilog and validate its outputs.
